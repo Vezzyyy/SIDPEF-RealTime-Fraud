@@ -4,27 +4,30 @@
 # ou fichier lourd ne doit être commité.
 # ============================================================
 
-# --- Données (lourdes / sensibles) --------------------------
-*.csv
+# --- Données confidentielles (lourdes / sensibles) ----------
+data/*.csv
+data/*.parquet
 *.parquet
 
 # Exception : jeu de données fictif pour les tests unitaires
 !data/mock_transactions.csv
 
-# --- Modèles sérialisés (binaires lourds) -------------------
+# --- Modèles sérialisés lourds (binaires) --------------------
 *.joblib
 *.pkl
 *.pt
 *.h5
 *.onnx
 models/
+resultats/*.joblib
+resultats/*.pt
+resultats/*.txt
 
-# --- Résultats / artefacts générés -------------------------
-resultats/
-outputs/
-*.png
-*.json
-!config/*.json
+# --- Résultats autorisés (rapports de métriques & graphiques)
+!resultats/
+!resultats/*.csv
+!resultats/*.json
+!resultats/*.png
 
 # --- Variables d'environnement (credentials, clés API) ------
 .env
