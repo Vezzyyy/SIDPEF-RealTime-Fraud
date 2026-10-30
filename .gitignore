@@ -1,0 +1,61 @@
+# ============================================================
+# SIDPEF – .gitignore  [SID-1]
+# Sécurité PCI-DSS / RGPD : aucune donnée confidentielle
+# ou fichier lourd ne doit être commité.
+# ============================================================
+
+# --- Données (lourdes / sensibles) --------------------------
+*.csv
+*.parquet
+
+# Exception : jeu de données fictif pour les tests unitaires
+!data/mock_transactions.csv
+
+# --- Modèles sérialisés (binaires lourds) -------------------
+*.joblib
+*.pkl
+*.pt
+*.h5
+*.onnx
+models/
+
+# --- Résultats / artefacts générés -------------------------
+resultats/
+outputs/
+*.png
+*.json
+!config/*.json
+
+# --- Variables d'environnement (credentials, clés API) ------
+.env
+.env.*
+secrets.yaml
+*.pem
+*.key
+
+# --- Python -------------------------------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# --- Notebooks ----------------------------------------------
+.ipynb_checkpoints/
+*.nbconvert.ipynb
+
+# --- Outils -------------------------------------------------
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+.venv/
+venv/
+.tox/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
